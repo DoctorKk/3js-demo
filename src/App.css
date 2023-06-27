@@ -40,3 +40,7 @@
 canvas {
   display: block;
 }
+
+.myCanvas {
+  background-color: #61dafb;
+}

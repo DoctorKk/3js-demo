@@ -1,7 +1,12 @@
+import * as THREE from 'three'
 import { createRoot } from 'react-dom/client'
 import React, { useRef, useState, useEffect } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Stats, OrbitControls } from '@react-three/drei'
+import { Canvas, useFrame, useLoader } from '@react-three/fiber'
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
+import { TextureLoader } from 'three/src/loaders/TextureLoader'
+import { Stats, OrbitControls, useGLTF } from '@react-three/drei'
+import vs from './glsl/Skull.vs'
+import fs from './glsl/Skull.fs'
 
 const ShadowMap = (props) => {
   return (
@@ -13,6 +18,41 @@ const ShadowMap = (props) => {
       <planeBufferGeometry attach='geometry' args={[100, 100]} />
       <shadowMaterial attach='material' opacity={0.5} color={'black'}/>
     </mesh>
+  )
+}
+
+const Skull = (props) => {
+  const group = useRef()
+  const skull = useLoader(OBJLoader, '/model/skull/SkullHead.obj')
+  const noisTex = useLoader(TextureLoader, '/model/skull/noise.png')
+  // const material = new THREE.RawShaderMaterial({
+  //   uniforms: {
+  //     time: {
+  //       type: 'f',
+  //       value: 0
+  //     },
+  //     renderOutline: {
+  //       type: 'f',
+  //       value: 0
+  //     },
+  //     noiseTex: {
+  //       type: 't',
+  //       value: noisTex
+  //     },
+  //   },
+  //   vertexShader: ,
+  //   fragmentShader: '',
+  // })
+  // console.log(vs)
+  // const skulln = new THREE.Mesh(skull.children[1].geometry, material)
+  // useFrame((state, delta) => {
+  //   material.uniforms.time.value += delta
+  // })
+  
+  return(
+    <group ref={group}>
+      <primitive object={skull} scale={0.5}/>
+    </group>
   )
 }
 
@@ -59,7 +99,7 @@ const App = (props) => {
     setHeight(h);
 
     window.addEventListener('resize', resizeUpdate)
-
+    console.log(ref.current.getContext('webgl2', {antialias: false}))
     return () => {
       window.removeEventListener('resize', resizeUpdate)
     }
@@ -69,8 +109,6 @@ const App = (props) => {
     <Canvas
       ref={ref}
       id='myCanvas'
-      colorManagement
-      shadowMap
       camera={{position: [0, 2, 10], fov: 70}}
     >
       <ambientLight intensity={0.1}/>
@@ -89,7 +127,7 @@ const App = (props) => {
       />
       {/* <Box position={[-1.2, 0, 0]} /> */}
       <ShadowMap />
-      <Box position={[0, 0, 0]} />
+      <Skull position={[0, 0, 0]} />
       <OrbitControls />
     </Canvas>
   )
