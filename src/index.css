@@ -27,6 +27,16 @@ html, body {
   height: 100%;
 }
 
+.myCanvas {
+  height: 100%;
+}
+
 canvas {
   background: linear-gradient(#f2c2c2, #24b3b3);
+  height: 100%;
+}
+
+.btn {
+  height: 2%;
+  margin: 0 50%;
 }

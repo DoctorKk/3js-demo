@@ -41,6 +41,10 @@ canvas {
   display: block;
 }
 
+.btn {
+  height: 2%;
+}
+
 .myCanvas {
   background-color: #61dafb;
 }

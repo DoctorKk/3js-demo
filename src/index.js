@@ -5,11 +5,17 @@ import App from './App';
 import MMD from './mmd/MMD'
 import Viking from './Viking/Viking'
 import reportWebVitals from './reportWebVitals';
+import { Router } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Viking />
+    <div className='btn' onClick={() => window.location='/mmd'}>mmd</div>
+    <div className='btn' onClick={() => window.location='/viking'}>viking</div>
+    <div className='btn' onClick={() => window.location='/skull'}>skull</div>
+    <App />
+    {/* <Viking /> */}
   </React.StrictMode>
 );
 
