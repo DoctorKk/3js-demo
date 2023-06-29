@@ -58,8 +58,8 @@ function init() {
 
   // STATS
 
-  stats = new Stats();
-  container.appendChild( stats.dom );
+  // stats = new Stats();
+  // container.appendChild( stats.dom );
 
   // model
 
@@ -182,9 +182,9 @@ function animate() {
 
   requestAnimationFrame( animate );
 
-  stats.begin();
+  // stats.begin();
   render();
-  stats.end();
+  // stats.end();
 
 }
 

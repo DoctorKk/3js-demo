@@ -11,9 +11,12 @@ import { Link } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className='btn' onClick={() => window.location='/mmd'}>mmd</div>
-    <div className='btn' onClick={() => window.location='/viking'}>viking</div>
-    <div className='btn' onClick={() => window.location='/skull'}>skull</div>
+    <p className='btns'>
+      <button className='btn' onClick={() => window.location='/mmd'}>mmd</button>
+      <button className='btn' onClick={() => window.location='/viking'}>viking</button>
+      <button className='btn' onClick={() => window.location='/skull'}>skull</button>
+      <button className='btn' onClick={() => window.location='/people'}>people</button>
+    </p>
     <App />
     {/* <Viking /> */}
   </React.StrictMode>

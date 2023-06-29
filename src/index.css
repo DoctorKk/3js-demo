@@ -37,6 +37,11 @@ canvas {
 }
 
 .btn {
+  height: 100%;
+  margin: 0 0 0 20%;
+}
+
+.btns {
+  margin: auto;
   height: 2%;
-  margin: 0 50%;
 }

@@ -4,8 +4,8 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import MMD from './mmd/MMD'
 import Skull from './skull/Skull'
 import Viking from './Viking/Viking'
-// 然后我们从应用中删除一堆代码和
-// 增加一些 <Link> 元素...
+import People from './people/People'
+
 const App = (props) => {
     
   return (
@@ -14,6 +14,7 @@ const App = (props) => {
           <Route path='/mmd' element={<MMD />}/>
           <Route path='/skull' element={<Skull />}/>
           <Route path='/viking' element={<Viking />}/>
+          <Route path='/people' element={<People />} />
         </Routes>
       </BrowserRouter>
     )
